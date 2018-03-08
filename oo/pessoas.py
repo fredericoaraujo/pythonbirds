@@ -20,6 +20,7 @@ if __name__ == '__main__':
     for filho in luciano.filhos:
         print(filho.nome)
 
+    print('teste')
     luciano.sobrenome = 'Ramalho'
     del luciano.filhos
     print(luciano.__dict__)
