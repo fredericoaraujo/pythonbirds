@@ -137,28 +137,33 @@ class Motor:
 
 
 class Direcao:
+    NORTE = 'Norte'
+    SUL = 'Sul'
+    LESTE = 'Leste'
+    OESTE = 'Oeste'
+
+    _rotacao_a_direita_dict = {
+        NORTE: LESTE,
+        LESTE: SUL,
+        SUL: OESTE,
+        OESTE: NORTE,
+    }
+
+    _rotacao_a_esquerda_dict = {
+        NORTE: OESTE,
+        OESTE: SUL,
+        SUL: LESTE,
+        LESTE: NORTE,
+    }
+
     def __init__(self):
-        self.valor = 'Norte'
+        self.valor = self.NORTE
 
     def girar_a_direita(self):
-        if self.valor == 'Norte':
-            self.valor = 'Leste'
-        elif self.valor == 'Leste':
-            self.valor = 'Sul'
-        elif self.valor == 'Sul':
-            self.valor = 'Oeste'
-        elif self.valor == 'Oeste':
-            self.valor = 'Norte'
+        self.valor = self._rotacao_a_direita_dict[self.valor]
 
     def girar_a_esquerda(self):
-        if self.valor == 'Norte':
-            self.valor = 'Oeste'
-        elif self.valor == 'Oeste':
-            self.valor = 'Sul'
-        elif self.valor == 'Sul':
-            self.valor = 'Leste'
-        elif self.valor == 'Leste':
-            self.valor = 'Norte'
+        self.valor = self._rotacao_a_esquerda_dict[self.valor]
 
 
 class Carro:
