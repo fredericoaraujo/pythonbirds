@@ -6,7 +6,6 @@ class Pessoa:
         self.nome = nome
         self.filhos = list(filhos)
 
-
     def cumprimentar(self):
         return f'Olá {id(self)}'
 
@@ -24,7 +23,7 @@ if __name__ == '__main__':
 
     luciano.sobrenome = 'Ramalho'
     del luciano.filhos
-    
+
     Pessoa.olhos = 3
     luciano.olhos = 1
     del luciano.olhos
